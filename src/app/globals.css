@@ -46,8 +46,15 @@ body {
   box-shadow: none !important;
 }
 
-.multi-range-slider .thumb .caption {
-  display: none !important;
+.multi-range-slider .thumb .caption  span{
+  background-color: inherit !important;
+  top: 0px;
+  left: -16px;
+  padding:0;
+  border: 0;
+  box-shadow: none;
+  color: #000000;
+  font-weight: 600;
 }
 .thumb-right {
   border: 0px !important;
