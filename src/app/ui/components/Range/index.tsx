@@ -9,19 +9,21 @@ type RangeProps = {
 };
 function Range({ editable }: RangeProps) {
   const {
-    min,
-    max,
+    minInput,
+    maxInput,
     minMultiRange,
     maxMultiRange,
     handlerOnChange,
     handlerOnChangeRange,
   } = useRange(editable);
+
   return (
     <div className="flex w-full justify-center p-[10px] bg-white">
       <div className="flex w-[900px]">
         <Input
+          name="min"
           editable={editable}
-          defaultValue={min}
+          defaultValue={minInput}
           onChange={handlerOnChange}
         />
         <div className="flex items-center w-full ">
@@ -33,13 +35,14 @@ function Range({ editable }: RangeProps) {
             maxValue={600}
             ruler={false}
             step={1}
-            onInput={handlerOnChangeRange}
+            onChange={handlerOnChangeRange}
             baseClassName="multi-range-slider"
           />
         </div>
         <Input
+          name="max"
           editable={editable}
-          defaultValue={max}
+          defaultValue={maxInput}
           onChange={handlerOnChange}
         />
       </div>
