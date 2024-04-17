@@ -8,7 +8,7 @@ import Sizes from "../Sizes";
 
 function Header() {
   const pathName = usePathname();
-  const rangeEditable = pathName === "/normalRange";
+  const rangeEditable = pathName === "/exercise1";
 
   return (
     <div className="bg-white sticky w-full top-0 left-0 z-10">

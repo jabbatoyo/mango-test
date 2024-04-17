@@ -10,37 +10,40 @@ function useRange(editable: boolean) {
     10.99, 30.99, 40.99, 50.99, 90.99, 100.99, 200.99, 300.99, 400.99, 500.99,
     600,
   ];
-  const [min, setMin] = useState(0);
-  const [max, setMax] = useState(600);
 
-  const minMultiRange = editable ? 1 : 0;
-  const maxMultiRange = editable ? 600 : 10;
+  const [minInput, setMinInput] = useState(10);
+  const [maxInput, setMaxInput] = useState(600);
+  const [minMultiRange, setMinMultiRange] = useState(editable ? 10 : 0);
+  const [maxMultiRange, setMaxMultiRange] = useState(editable ? 600 : 10);
 
   const handlerOnChangeRange = (e: ChangeResult) => {
     const minValue = editable === false ? rangeValues[e.minValue] : e.minValue;
     const maxValue = editable === false ? rangeValues[e.maxValue] : e.maxValue;
     setRanges(minValue, maxValue);
-    setMin(minValue);
-    setMax(maxValue);
+    setMinInput(minValue);
+    setMaxInput(maxValue);
   };
 
   const handlerOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
     if (name === "max") {
-      setMax(Number(value));
+      setMaxInput(Number(value));
       setRanges(null, Number(value));
+      if (editable) setMaxMultiRange(Number(value));
     }
     if (name === "min") {
       setRanges(Number(value), null);
-      setMin(Number(value));
+      setMinInput(Number(value));
+      if (editable) setMinMultiRange(Number(value));
     }
   };
 
   return {
-    min,
-    max,
-    maxMultiRange,
+    minInput,
+    maxInput,
     minMultiRange,
+    maxMultiRange,
     handlerOnChangeRange,
     handlerOnChange,
   };
