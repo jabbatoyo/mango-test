@@ -13,6 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Mango</title>
+      </head>
       <body className="flex flex-col min-h-screen">
         <FiltersProvider>
           <Header />
