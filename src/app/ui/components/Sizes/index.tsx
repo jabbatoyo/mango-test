@@ -13,7 +13,10 @@ function Sizes() {
   };
 
   return (
-    <div className="flex justify-center items-center mb-[10px]">
+    <div
+      className="flex justify-center items-center mb-[10px]"
+      data-testid="size-container"
+    >
       <div className="flex w-auto">
         {sizes.map((item, index) => {
           return (
@@ -22,7 +25,7 @@ function Sizes() {
               key={index}
             >
               <input
-                name=""
+                data-testid={`input-checkbox-size-element`}
                 className="w-[20px] h-[20px] cursor-pointer accent-[#000]"
                 type="checkbox"
                 value={item}

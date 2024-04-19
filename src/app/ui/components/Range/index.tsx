@@ -18,7 +18,10 @@ function Range({ editable }: RangeProps) {
   } = useRange(editable);
 
   return (
-    <div className="flex w-full justify-center p-[10px] bg-white">
+    <div
+      className="flex w-full justify-center p-[10px] bg-white"
+      data-testid="ranger-container"
+    >
       <div className="flex w-[900px]">
         <Input
           name="min"
