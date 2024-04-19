@@ -6,8 +6,10 @@ import Card from "../Card";
 
 function CardContainer() {
   const { products } = useProducts();
+
+  console.log("datos products", products);
   return (
-    <div className="grid grid-cols-4 gap-1">
+    <div className="grid grid-cols-4 gap-1" data-testid="card-container">
       {products?.map(
         (item: { name: string; img: string; price: string }, index: number) => {
           return (
