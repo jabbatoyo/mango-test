@@ -25,8 +25,8 @@ type FiltersContextType = {
 
 const FiltersContext = createContext<FiltersContextType>({
   sizes: [],
-  minRanges: 10,
-  maxRanges: 600,
+  minRanges: 0,
+  maxRanges: 100,
   userIsFiltering: false,
   setSizes: () => {},
   setRanges: () => {},
@@ -35,8 +35,8 @@ const FiltersContext = createContext<FiltersContextType>({
 
 export function FiltersProvider({ children }: AppContextProviderProps) {
   const [sizes, setSizes] = useState<string[]>([]);
-  const [minRanges, setMinRanges] = useState<number>(10);
-  const [maxRanges, setMaxRanges] = useState<number>(600);
+  const [minRanges, setMinRanges] = useState<number>(0);
+  const [maxRanges, setMaxRanges] = useState<number>(100);
   const [userIsFiltering, setUserIsFiltering] = useState<boolean>(false);
 
   const setRanges = (min: number | null, max: number | null) => {
