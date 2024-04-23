@@ -3,12 +3,13 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 //Components
-import Range from "../Range";
+import Range from "../RangeComponent";
 import Sizes from "../Sizes";
+import RangeComponent from "../RangeComponent";
 
 function Header() {
   const pathName = usePathname();
-  const rangeEditable = pathName === "/exercise1";
+  const rangeNormal = pathName === "/exercise1";
 
   return (
     <div className="bg-white sticky w-full top-0 left-0 z-10">
@@ -31,7 +32,18 @@ function Header() {
       {pathName !== "/" &&
         (pathName === "/exercise1" || pathName === "/exercise2") && (
           <>
-            <Range editable={rangeEditable} />
+            {rangeNormal && (
+              <RangeComponent type="normal" minRange={0} maxRange={500} />
+            )}
+            {!rangeNormal && (
+              <RangeComponent
+                type="fixed"
+                rangeValues={[
+                  10.99, 30.99, 40.99, 50.99, 90.99, 100.99, 200.99, 300.99,
+                  400.99, 500.99,
+                ]}
+              />
+            )}
             <Sizes />
           </>
         )}
