@@ -1,21 +1,21 @@
-import Range from "@/app/ui/components/Range";
+import RangeComponent from "@/app/ui/components/RangeComponent";
 import { render, screen } from "@testing-library/react";
 
 describe("Test Range component", () => {
   test("This range is render", () => {
-    render(<Range editable />);
+    render(<RangeComponent type="normal" />);
     const container = screen.getByTestId("ranger-container");
     expect(container).toBeTruthy();
   });
 
   test("This range is editable", () => {
-    render(<Range editable />);
+    render(<RangeComponent type="normal" />);
     const input = screen.getAllByTestId("input-element");
     expect(input).toBeTruthy();
   });
 
   test("This range is not editable", () => {
-    render(<Range editable={false} />);
+    render(<RangeComponent type="fixed" />);
     const spanText = screen.getAllByTestId("span-text-element");
     expect(spanText).toBeTruthy();
   });
