@@ -138,7 +138,9 @@ function useRange({
 
   const progressBarLeft = () => {
     return type === "fixed"
-      ? `${((minMultiRange - minValue) / (maxValue - minValue)) * 100}%`
+      ? `${
+          ((minMultiRange - minFixValue) / (maxFixValue - minFixValue)) * 100
+        }%`
       : `${
           ((minValue - minMultiRange) / (maxMultiRange - minMultiRange)) * 100
         }%`;
